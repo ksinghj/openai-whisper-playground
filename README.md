@@ -2,6 +2,8 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Getting Started
 
+To run you'll need your own OpenAI API key, and you'll need to add your own test audio file.
+
 First, run the development server:
 
 ```bash
