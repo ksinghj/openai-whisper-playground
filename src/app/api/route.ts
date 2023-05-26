@@ -8,13 +8,19 @@ const configuration = new Configuration({
 const openai = new OpenAIApi(configuration)
 
 export async function POST(request: Request) {
-  const transcription = await openai.createTranscription(request.body, 'whisper-1')
+  const formData = await request.formData()
+  console.log('model: ', formData.get('model'))
+  console.log('file: ', formData.get('file'))
+
+  const file = formData.get('file')
+
+  const transcription = await openai.createTranscription(file, 'whisper-1')
 
   return NextResponse.json({ res: transcription })
 }
 
-// export const config = {
-//   api: {
-//     bodyParser: false
-//   }
-// }
+export const config = {
+  api: {
+    bodyParser: false
+  }
+}
